@@ -29,6 +29,7 @@ section {
     background: white;
     border-radius: 8px;
 }
+
 h2 {
     color: #4CAF50; 
 }
