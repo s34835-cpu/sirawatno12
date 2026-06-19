@@ -32,9 +32,9 @@ body {
     bottom: 10px;
     border: 3px solid transparent;
     border-radius: 20px;
-    pointer-events: none; 
+    pointer-events: none;
     z-index: 9999;
-    background: linear-gradient(var(--bg-pure-dark), var(--bg-pure-dark)) padding-box,
+    background: linear-gradient(transparent, transparent) padding-box,
                 linear-gradient(90deg, #00f2fe, #4facfe, #9b51e0, #ff007f, #00f2fe) border-box;
     background-size: 200% 100%;
     animation: borderGlowRun 6s linear infinite;
