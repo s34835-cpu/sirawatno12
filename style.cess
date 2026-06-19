@@ -30,7 +30,7 @@ section {
     border-radius: 8px;
 }
 h2 {
-    color: #4CAF50; /* สีของหัวข้อ */
+    color: #4CAF50; 
 }
 
 .project {
@@ -43,14 +43,14 @@ h2 {
 }
 
 ul {
-    list-style-type: square; /* ใช้จุดสี่เหลี่ยมแทนจุดกลม */
+    list-style-type: square; 
     padding-left: 20px;
 }
 
 footer {
     text-align: center;
     padding: 10px 0;
-    background: #333; /* สีพื้นหลังเข้ม */
+    background: #333; 
     color: white;
     margin-top: 20px;
 }
