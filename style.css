@@ -1,9 +1,9 @@
 :root {
     --scroll-hue: 0deg;
-    --bg-dark: #0a0b10;
+    --bg-pure-dark: #000000;
     --neon-blue: #00f2fe;
     --neon-green: #4facfe;
-    --card-bg: rgba(18, 20, 29, 0.85);
+    --card-bg: rgba(20, 22, 30, 0.9);
 }
 
 * {
@@ -11,29 +11,49 @@
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    transition: background 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
     color: #e0e0e0;
     line-height: 1.7;
-    background: radial-gradient(circle at center, var(--bg-dark) 40%, hsl(calc(220 + var(--scroll-hue)), 70%, 10%) 100%);
+    background: radial-gradient(circle at center, #050508 30%, hsl(calc(220 + var(--scroll-hue)), 70%, 5%) 100%);
+    background-color: var(--bg-pure-dark);
     background-attachment: fixed;
-    min-height: 150vh; 
+    min-height: 140vh; 
+    position: relative;
+}
+
+.screen-border-glow {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 3px solid transparent;
+    border-radius: 20px;
+    pointer-events: none; 
+    z-index: 9999;
+    background: linear-gradient(var(--bg-pure-dark), var(--bg-pure-dark)) padding-box,
+                linear-gradient(90deg, #00f2fe, #4facfe, #9b51e0, #ff007f, #00f2fe) border-box;
+    background-size: 200% 100%;
+    animation: borderGlowRun 6s linear infinite;
+    box-shadow: inset 0 0 15px rgba(0, 242, 254, 0.2), 
+                0 0 20px rgba(0, 242, 254, 0.25);
 }
 
 header {
     text-align: center;
-    padding: 60px 20px 40px;
-    background: #0a0b10;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 70px 20px 40px;
+    background: var(--bg-pure-dark); 
+    position: relative;
+    z-index: 10;
 }
 
 header h1 {
     font-size: 2.8rem;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .neon-text {
@@ -43,26 +63,29 @@ header h1 {
     -webkit-text-fill-color: transparent;
     animation: textGlowRun 3s linear infinite;
     font-weight: bold;
+    filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.6));
 }
 
 header p {
-    color: #aaa;
+    color: #888;
     font-size: 1.1rem;
 }
 
 .container {
     max-width: 850px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 30px auto;
+    padding: 0 25px;
+    position: relative;
+    z-index: 10;
 }
 
 .card {
     background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
 }
 
 .card:hover {
@@ -75,31 +98,30 @@ header p {
     color: #00ffd5;
     margin-bottom: 20px;
     font-size: 1.6rem;
-    text-shadow: 0 0 10px rgba(0, 255, 213, 0.3);
-    position: relative;
+    text-shadow: 0 0 12px rgba(0, 255, 213, 0.4);
     display: inline-block;
 }
 
 .project-item {
-    padding: 15px;
+    padding: 18px;
     margin-top: 15px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.01);
     border-left: 3px solid #4facfe;
     cursor: pointer;
 }
 
 .project-item:hover {
-    background: rgba(0, 242, 254, 0.05);
-    transform: scale(1.02) translateX(5px);
+    background: rgba(0, 242, 254, 0.04);
+    transform: scale(1.02) translateX(6px);
     border-left-color: #00f2fe;
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
 }
 
 .project-item h3 {
     color: #fff;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
 }
 
 .project-item p {
@@ -109,14 +131,20 @@ header p {
 
 .highlight {
     color: var(--neon-blue);
-    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
 }
 
 footer {
     text-align: center;
-    padding: 40px;
-    color: #666;
+    padding: 50px 20px;
+    color: #555;
     font-size: 0.9rem;
+    background: var(--bg-pure-dark);
+}
+
+@keyframes borderGlowRun {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
 }
 
 @keyframes textGlowRun {
