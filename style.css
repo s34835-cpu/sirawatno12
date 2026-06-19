@@ -1,52 +1,40 @@
-/* กำหนดค่าตัวแปรเริ่มต้น */
 :root {
     --scroll-hue: 0deg;
     --neon-blue: #00f2fe;
     --neon-green: #4facfe;
+    --bg-black: #000000;
 }
 
-/* ล้างค่า Margin/Padding เก่าออกทั้งหมด */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* ตัว Body บังคับเป็นสีดำสนิทร้อยเปอร์เซ็นต์ และใส่แสงวิ่งที่ขอบจอตรงนี้เลย ไม่บังแน่นอน */
 body {
     color: #e0e0e0;
-    line-height: 1.7;
-    background-color: #000000 !important; /* บังคับดำสนิท */
-    background-image: radial-gradient(circle at center, #000000 40%, hsl(calc(220 + var(--scroll-hue)), 70%, 5%) 100%);
+    line-height: 1.6;
+    background-color: var(--bg-black) !important;
+    background-image: radial-gradient(circle at center, #000000 50%, hsl(calc(220 + var(--scroll-hue)), 70%, 5%) 100%);
     background-attachment: fixed;
-    min-height: 140vh;
-    padding: 15px; /* เว้นพื้นที่ให้เห็นขอบจอเรืองแสง */
+    min-height: 120vh;
+    padding: 10px;
 }
 
-/* สร้างเส้นขอบเรืองแสงเปลี่ยนสีได้ไว้ที่ตัวหน้าจอ */
+/* แสงขอบจอเรืองแสง (แบบไม่บังตัวหนังสือ) */
 html {
-    background-color: #000000;
+    background-color: #000;
     box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.4);
     animation: borderGlowShift 8s linear infinite;
-    min-height: 100vh;
 }
 
-/* ─── Header สีดำสนิท ─── */
 header {
     text-align: center;
-    padding: 60px 20px 30px;
-    background: #000000 !important; /* แก้ปัญหาแถบสีเทา/สีขาว */
+    padding: 60px 20px 20px;
+    background: transparent;
 }
 
-header h1 {
-    font-size: 2.8rem;
-    color: #fff;
-    margin-bottom: 12px;
-}
-
-/* ข้อความ SIRAWAT เรืองแสงและสีวิ่ง */
 .neon-text {
     background: linear-gradient(90deg, var(--neon-blue), var(--neon-green), var(--neon-blue));
     background-size: 200% auto;
@@ -57,99 +45,104 @@ header h1 {
     filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.6));
 }
 
-header p {
-    color: #777;
-    font-size: 1.1rem;
-}
-
-/* คอนเทนเนอร์จัดหน้า */
 .container {
     max-width: 800px;
-    margin: 30px auto;
-    padding: 0 10px;
+    margin: 20px auto;
 }
 
-/* ─── การ์ดข้อความ (เปลี่ยนจากสีขาวเดิมเป็นกระจกรมดำ) ─── */
 section.card {
-    background: rgba(20, 22, 30, 0.9) !important; /* บังคับเปลี่ยนสีกล่องไม่ให้เป็นสีขาว */
+    background: rgba(15, 15, 20, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 30px;
-    margin-bottom: 35px;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
 }
 
-/* เอฟเฟกต์ตอนเมาส์ชี้ที่ตัวการ์ด */
 section.card:hover {
-    transform: translateY(-5px);
     border-color: rgba(0, 242, 254, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 242, 254, 0.1);
 }
 
-/* หัวข้อการ์ดสีเขียวนีออน */
 section.card h2 {
     color: #00ffd5;
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-    text-shadow: 0 0 10px rgba(0, 255, 213, 0.4);
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(0, 255, 213, 0.5);
 }
 
-/* รายชื่อผลงานย่อย */
+/* ─── ส่วนรูปภาพโปรไฟล์ ─── */
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* เว้นระยะระหว่างรูปกับตัวหนังสือ */
+}
+
+.profile-img {
+    width: 140px;           /* ขนาดรูปภาพ */
+    height: 140px;
+    border-radius: 50%;      /* ทำให้รูปเป็นวงกลม */
+    border: 3px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.5); /* เรืองแสงรอบรูป */
+    object-fit: cover;       /* ป้องกันรูปเบี้ยว */
+    transition: 0.5s;
+}
+
+.profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px var(--neon-blue);
+}
+
+.profile-text {
+    flex: 1;
+}
+
+/* รายการผลงาน */
 .project-item {
     padding: 15px;
     margin-top: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.02);
-    border-left: 3px solid #4facfe;
+    border-left: 4px solid #4facfe;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* อนิเมชันตอนชี้ที่รายชื่อผลงาน */
 .project-item:hover {
     background: rgba(0, 242, 254, 0.05);
-    transform: scale(1.02) translateX(5px);
-    border-left-color: #00f2fe;
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    transform: translateX(10px);
 }
 
-.project-item h3 {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.project-item p {
-    color: #999;
-    font-size: 0.95rem;
-}
-
-/* ไฮไลต์สีตรงหน้าติดต่อ */
 .highlight {
     color: var(--neon-blue);
-    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
 }
 
 footer {
     text-align: center;
-    padding: 40px 20px;
+    padding: 40px;
     color: #444;
-    font-size: 0.9rem;
-    background: #000000;
 }
 
-/* ─── ส่วนแอนิเมชัน ─── */
+/* การตั้งค่าหน้าจอเล็ก (มือถือ) */
+@media (max-width: 600px) {
+    .profile-content {
+        flex-direction: column; /* ถือถือให้รูปอยู่บน ข้อความอยู่ล่าง */
+        text-align: center;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+}
 
-/* แอนิเมชันข้อความสีวิ่ง */
+/* Animations */
 @keyframes textGlowRun {
     0% { background-position: 0% 50%; }
     100% { background-position: 200% 50%; }
 }
 
-/* แอนิเมชันแสงขอบจอวิ่งเปลี่ยนสีวนลูป */
 @keyframes borderGlowShift {
     0%   { box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.4); }
-    25%  { box-shadow: inset 0 0 20px rgba(79, 172, 254, 0.4); }
     50%  { box-shadow: inset 0 0 20px rgba(155, 81, 224, 0.4); }
-    75%  { box-shadow: inset 0 0 20px rgba(255, 0, 127, 0.4); }
     100% { box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.4); }
 }
