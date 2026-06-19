@@ -3,51 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลงานของฉัน</title>
+    <title>Sirawat Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <h1>สวัสดี! ผมชื่อ SIRAWAT</h1>
+        <h1>สวัสดีครับ! ผมชื่อ <span class="neon-text">SIRAWAT</span></h1>
         <p>นี่คือผลงานและความภาคภูมิใจของผม</p>
     </header>
 
-    <section id="about">
-        <h2>เกี่ยวกับผม</h2>
-        <p>
-        ผมเป็นนักเรียนที่สนใจด้านเทคโนโลยีและการพัฒนาเว็บไซต์
-        ชอบเรียนรู้สิ่งใหม่ ๆ และพัฒนาทักษะของตนเองอยู่เสมอ
-    </section>
+    <div class="container">
+        <section class="card">
+            <h2>เกี่ยวกับผม</h2>
+            <p>ผมเป็นนักเรียนที่สนใจด้านเทคโนโลยีและการพัฒนาเว็บไซต์ ชอบเรียนรู้สิ่งใหม่ ๆ และพัฒนาทักษะของตนเองอยู่เสมอ</p>
+        </section>
 
-    <section id="projects">
-        <h2>ผลงานของผม</h2>
+        <section class="card">
+            <h2>ผลงานของผม</h2>
+            <div class="project-item">
+                <h3>เว็บไซต์ Portfolio</h3>
+                <p>เว็บไซต์สำหรับแสดงผลงานและข้อมูลส่วนตัว</p>
+            </div>
+            <div class="project-item">
+                <h3>เว็บไซต์ร้านค้าออนไลน์</h3>
+                <p>เว็บไซต์สำหรับจำหน่ายสินค้าและรับคำสั่งซื้อ</p>
+            </div>
+            <div class="project-item">
+                <h3>ระบบจัดการข้อมูลนักเรียน</h3>
+                <p>ช่วยจัดเก็บและค้นหาข้อมูลนักเรียนได้สะดวก</p>
+            </div>
+        </section>
 
-        <div class="project">
-            <h3>เว็บไซต์ Portfolio</h3>
-           <p>เว็บไซต์สำหรับแสดงผลงานและข้อมูลส่วนตัว</p>
-        </div>
-
-        <div class="project">
-              <h3>เว็บไซต์ร้านค้าออนไลน์</h3>
-              <p>เว็บไซต์สำหรับจำหน่ายสินค้าและรับคำสั่งซื้อ</p>
-        </div>
-
-        <div class="project">
-              <h3>ระบบจัดการข้อมูลนักเรียน</h3>
-              <p>ช่วยจัดเก็บและค้นหาข้อมูลนักเรียนได้สะดวก</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>ติดต่อ</h2>
-        <p>Email: S34835@banbung.ac.th</p>
-      S35963@banbung.ac.t
-        <p>Facebook: SIRAWAT</p>
-    </section>
+        <section class="card">
+            <h2>ติดต่อ</h2>
+            <p><strong>Email:</strong> <span class="highlight">S34835@banbung.ac.th</span></p>
+            <p><strong>Email:</strong> <span class="highlight">S34835@banbung.ac.t</span></p>
+            <p><strong>Facebook:</strong> <span class="highlight">SIRAWAT</span></p>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Portfolio ของ SIRAWAT</p>
-        </footer>
+        <p>© 2026 SIRAWAT. All Rights Reserved.</p>
+    </footer>
 
-</body>
-</html>
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            const hueValue = scrollPercent * 120; 
+            document.body.style.setProperty('--scroll-hue', `${hueValue}deg`);
+        });
