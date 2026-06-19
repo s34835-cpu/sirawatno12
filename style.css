@@ -8,14 +8,27 @@ body {
 }
 
 header {
-    background: #4CAF50;
-    color: white;
+    background: white;          
     padding: 20px 0;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
+    background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC, #0052D4);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    animation: runningBlue 4s linear infinite; 
+}
+
+@keyframes runningBlue {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
 }
 
 header p {
