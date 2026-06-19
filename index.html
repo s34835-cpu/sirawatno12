@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <div class="screen-border-glow"></div>
+
     <header>
         <h1>สวัสดีครับ! ผมชื่อ <span class="neon-text">SIRAWAT</span></h1>
         <p>นี่คือผลงานและความภาคภูมิใจของผม</p>
@@ -51,7 +53,13 @@
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = scrollTop / docHeight;
-            const hueValue = scrollPercent * 120; 
-            document.body.style.setProperty('--scroll-hue', `${hueValue}deg`);
+            if (docHeight > 0) {
+                const scrollPercent = scrollTop / docHeight;
+                // หมุนองศาเฉดสีพื้นหลังตามการ Scroll (0 - 120 องศา)
+                const hueValue = scrollPercent * 120;
+                document.body.style.setProperty('--scroll-hue', `${hueValue}deg`);
+            }
         });
+    </script>
+</body>
+</html>
