@@ -1,70 +1,125 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+:root {
+    --scroll-hue: 0deg;
+    --bg-dark: #0a0b10;
+    --neon-blue: #00f2fe;
+    --neon-green: #4facfe;
+    --card-bg: rgba(18, 20, 29, 0.85);
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    transition: background 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+    color: #e0e0e0;
+    line-height: 1.7;
+    background: radial-gradient(circle at center, var(--bg-dark) 40%, hsl(calc(220 + var(--scroll-hue)), 70%, 10%) 100%);
+    background-attachment: fixed;
+    min-height: 150vh; 
 }
 
 header {
-    background: white;          
-    padding: 20px 0;
     text-align: center;
+    padding: 60px 20px 40px;
+    background: rgba(10, 11, 16, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header h1 {
-    margin: 0;
-    background: linear-gradient(90deg, #0052D4, #4364F7, #6FB1FC, #0052D4);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    animation: runningBlue 4s linear infinite; 
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
-@keyframes runningBlue {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 200% 50%;
-    }
+.neon-text {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-green), var(--neon-blue));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlowRun 3s linear infinite;
+    font-weight: bold;
 }
 
 header p {
-    margin: 5px 0 0;
+    color: #aaa;
+    font-size: 1.1rem;
 }
 
-section {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background: white;
-    border-radius: 8px;
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-h2 {
-    color: #4CAF50; 
+.card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.project {
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15);
+}
+
+.card h2 {
+    color: #00ffd5;
     margin-bottom: 20px;
+    font-size: 1.6rem;
+    text-shadow: 0 0 10px rgba(0, 255, 213, 0.3);
+    position: relative;
+    display: inline-block;
 }
 
-.project h3 {
-    margin: 0 0 10px;
-    color: #333;
+.project-item {
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 3px solid #4facfe;
+    cursor: pointer;
 }
 
-ul {
-    list-style-type: square; 
-    padding-left: 20px;
+.project-item:hover {
+    background: rgba(0, 242, 254, 0.05);
+    transform: scale(1.02) translateX(5px);
+    border-left-color: #00f2fe;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+.project-item h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.project-item p {
+    color: #999;
+    font-size: 0.95rem;
+}
+
+.highlight {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
 }
 
 footer {
     text-align: center;
-    padding: 10px 0;
-    background: #333; 
-    color: white;
-    margin-top: 20px;
+    padding: 40px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@keyframes textGlowRun {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
 }
