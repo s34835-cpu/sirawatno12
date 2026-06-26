@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดผลงาน - เว็บไซต์ Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <h1><span class="neon-text">PROJECT DETAILS</span></h1>
+        <p>รายละเอียดเชิงลึกของผลงานที่ผมภาคภูมิใจ</p>
+    </header>
+
+    <div class="container">
+        <a href="index.html" style="color: #00f2fe; text-decoration: none; display: inline-block; margin-bottom: 25px; font-weight: bold;">
+            ← กลับหน้าหลัก
+        </a>
+
+        <section class="card">
+            <h2>เว็บไซต์ Portfolio (แฟ้มผลงานดิจิทัล)</h2>
+            
+            <div class="profile-content" style="flex-direction: column; align-items: flex-start; gap: 20px;">
+                
+                <img src="ใส่ชื่อไฟล์รูปผลงานตรงนี้.jpg" alt="ตัวอย่างหน้าเว็บ Portfolio" 
+                     style="width: 100%; max-height: 450px; object-fit: cover; border-radius: 12px; border: 2px solid #00f2fe; box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);">
+                
+                <div class="profile-text" style="margin-top: 15px; width: 100%;">
+                    <h3 style="color: #fff; margin-bottom: 10px;">📌 ที่มาและแรงบันดาลใจ</h3>
+                    <p>เว็บไซต์นี้สร้างขึ้นเพื่อรวบรวมและจัดเก็บประวัติ ผลงาน รวมถึงทักษะความสามารถในรูปแบบดิจิทัล โดยเน้นสไตล์การออกแบบแนว Cyberpunk เพื่อสะท้อนตัวตนและความสนใจด้านเทคโนโลยีคอมพิวเตอร์</p>
+                    
+                    <br>
+                    <h3 style="color: #fff; margin-bottom: 10px;">🛠️ เทคโนโลยีที่ใช้ในการพัฒนา</h3>
+                    <p style="margin-bottom: 5px;">• <strong>HTML5:</strong> จัดโครงสร้างข้อมูล รูปภาพ และระบบลิงก์ในหน้าเว็บ</p>
+                    <p style="margin-bottom: 5px;">• <strong>CSS3:</strong> ตกแต่งธีมมืด ทำหน้าจอกระจกรมดำ และแอนิเมชันแสงนีออนวิ่งรอบจอ</p>
+                    <p style="margin-bottom: 5px;">• <strong>JavaScript:</strong> ตรวจจับการเลื่อน Scroll เพื่อเปลี่ยนเฉดสีพื้นหลังแบบ Dynamic</p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 SIRAWAT. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight > 0) {
+                const scrollPercent = scrollTop / docHeight;
+                const hueValue = scrollPercent * 120;
+                document.body.style.setProperty('--scroll-hue', `${hueValue}deg`);
+            }
+        });
+    </script>
+</body>
+</html>
